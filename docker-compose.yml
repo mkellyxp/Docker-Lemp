@@ -1,24 +1,28 @@
 version: '3'
 services:
   web:
+    build: .
     image: nginx:latest
     ports:
       - "80:80"
+    build:
+      context: .
+      dockerfile: Dockerfile
     volumes:
       - ./src:/var/www/html
     links:
       - php-fpm
-  
+
   php-fpm:
     image: php:7.4-fpm
 
-  db:
-    image: mysql:5.7
-    command: --default-authentication-plugin=mysql_native_password
-    restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: n3wj3rs3y
-    ports:
-      - "3306:3306"
-    volumes:
-      - ./mysql:/var/lib/mysql
+  #db:
+  #  image: mysql:5.7
+  #  command: --default-authentication-plugin=mysql_native_password
+  #  restart: always
+  #  environment:
+  #    MYSQL_ROOT_PASSWORD: n3wj3rs3y
+  #  ports:
+  #    - "3306:3306"
+  #  volumes:
+  #    - ./mysql:/var/lib/mysql
