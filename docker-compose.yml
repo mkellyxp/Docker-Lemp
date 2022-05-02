@@ -3,19 +3,14 @@ services:
   web:
     image: nginx:latest
     ports:
-      - "8080:80"
+      - "80:80"
     volumes:
-      - ./docker/src:/var/www/html:z
-      - ./docker/default.conf:/etc/nginx/conf.d/default.conf
+      - ./src:/var/www/html
     links:
       - php-fpm
   
   php-fpm:
     image: php:7-fpm
-    volumes:
-      - ./vip_member_vault_admin:/var/www/html:z
-      - ./docker/writable:/var/www/html/application/writable:z
-
 
   db:
     image: mysql
@@ -24,6 +19,6 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: n3wj3rs3y
     ports:
-      - "6608:3306"
+      - "3306:3306"
     volumes:
-      - ./docker/mysql:/var/lib/mysql:z
+      - ./mysql:/var/lib/mysql
