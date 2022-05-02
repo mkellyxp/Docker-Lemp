@@ -1,7 +1,6 @@
 version: '3'
 services:
   web:
-    build: .
     image: nginx:latest
     ports:
       - "80:80"
@@ -15,6 +14,8 @@ services:
 
   php-fpm:
     image: php:7.4-fpm
+    volumes:
+     - ./src:/var/www/html
 
   #db:
   #  image: mysql:5.7
