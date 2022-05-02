@@ -5,16 +5,14 @@ services:
     image: nginx:latest
     ports:
       - "80:80"
-    build:
-      context: .
-      dockerfile: Dockerfile
     volumes:
       - ./src:/var/www/html
     links:
       - php-fpm
-
   php-fpm:
     image: php:7.4-fpm
+    volumes:
+      - ./src:/var/www/html
 
   #db:
   #  image: mysql:5.7
