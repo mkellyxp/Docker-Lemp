@@ -10,10 +10,10 @@ services:
       - php-fpm
   
   php-fpm:
-    image: php:7-fpm
+    image: php:7.4-fpm
 
   db:
-    image: mysql
+    image: mysql:5.7
     command: --default-authentication-plugin=mysql_native_password
     restart: always
     environment:

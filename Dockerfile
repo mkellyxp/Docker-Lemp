@@ -1,4 +1,4 @@
-FROM php:7-fpm
+FROM php:7.4-fpm
 
 COPY ./default.conf /etc/nginx/conf.d/default.conf
 
