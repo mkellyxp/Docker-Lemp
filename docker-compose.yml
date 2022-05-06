@@ -5,6 +5,7 @@ services:
       context: ./conf
       dockerfile: Dockerfile-nginx
     image: nginx:latest
+    restart: always
     ports:
       - "80:80"
     volumes:
@@ -16,6 +17,7 @@ services:
       context: ./conf
       dockerfile: Dockerfile-php
     image: php:7.4-fpm
+    restart: always
     volumes:
       - ./src:/var/www/html
 
