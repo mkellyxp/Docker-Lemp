@@ -2,7 +2,8 @@ FROM php:7.4-fpm
 
 RUN apt-get update
 RUN apt-get upgrade -y
-RUN apt-get install vim -y
 
-RUN docker-php-ext-install pdo pdo_mysql
-RUN docker-php-ext-enable pdo_mysql
+RUN apt-get install -y libtidy-dev
+
+RUN docker-php-ext-install pdo pdo_mysql tidy
+RUN docker-php-ext-enable pdo_mysql tidy
