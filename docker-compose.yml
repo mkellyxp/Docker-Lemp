@@ -9,8 +9,8 @@ services:
     ports:
       - "80:80"
     volumes:
-      - ./sites:/var/www/html
-      - ./conf:/etc/nginx/conf.d/
+      - ./sites:/var/www/html/:z
+      - ./conf:/etc/nginx/conf.d/:z
 
   php-fpm:
     build: 
@@ -19,7 +19,7 @@ services:
     image: php:7.4-fpm
     restart: always
     volumes:
-      - ./sites:/var/www/html
+      - ./sites:/var/www/html/:z
 
   db:
     image: mysql:5.7
@@ -30,4 +30,4 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      - ./mysql:/var/lib/mysql
+      - ./mysql:/var/lib/mysql/:z
