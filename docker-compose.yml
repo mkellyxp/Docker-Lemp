@@ -16,7 +16,7 @@ services:
     build: 
       context: .
       dockerfile: Dockerfile-php
-    image: php:7.4-fpm
+    image: php:8.2-fpm
     restart: always
     volumes:
       - ./sites:/var/www/html/:z
