@@ -1,4 +1,4 @@
-Docker / Podman setup for a PHP 7.4 / Nginx / MySql 5.7 stack.
+Docker / Podman setup for a PHP 8.2 / Nginx / MySql 8 stack.
 
 Simply run 'sudo docker-compose up -d' or 'sudo podman-compose up -d'
 
