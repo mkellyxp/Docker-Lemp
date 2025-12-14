@@ -9,7 +9,7 @@ services:
     ports:
       - "80:80"
     volumes:
-      - ./sites:/var/www/html
+      - ./sites:/var/www/html:rw
       - ./conf:/etc/nginx/conf.d
     extra_hosts:
       - "www.admin.local:172.17.0.1"
@@ -22,7 +22,7 @@ services:
     image: php:8.2-fpm
     restart: always
     volumes:
-      - ./sites:/var/www/html
+      - ./sites:/var/www/html:rw
     extra_hosts:
       - "www.admin.local:172.17.0.1"
       - "www.course.local:172.17.0.1"
@@ -36,7 +36,7 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      - ./mysql:/var/lib/mysql
+      - ./mysql:/var/lib/mysql:rw
     extra_hosts:
       - "www.admin.local:172.17.0.1"
       - "www.course.local:172.17.0.1"
